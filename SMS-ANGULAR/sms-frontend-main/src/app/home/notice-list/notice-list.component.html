@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <div>
+      <!-- No data message -->
+      <p *ngIf="Notice.length <= 0" class="no-data text-center">There is no notice added yet!</p>
+    
+      <!-- Notice list -->
+      <table class="table table-bordered" *ngIf="Notice.length > 0">
+        <thead class="bg-warning">
+          <tr>
+            <th scope="col">Heading</th>
+            <th scope="col">Message</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notice of Notice; let i = index">
+            
+            <td>{{notice.heading}}</td>
+            <td>{{notice.message}}</td>
+            <!--<td><a class="btn btn-vayati" [routerLink]="['/viewdetail-parent',parent._id]">View</a></td>-->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+</div>
+
+

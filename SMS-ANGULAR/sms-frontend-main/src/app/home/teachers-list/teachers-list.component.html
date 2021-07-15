@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <div>
+      <!-- No data message -->
+      <p *ngIf="Teacher.length <= 0" class="no-data text-center">There is no teacher added yet!</p>
+    
+      <!-- Teacher list -->
+      <table class="table table-bordered" *ngIf="Teacher.length > 0">
+        <thead class="bg-warning">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let teacher of Teacher; let i = index">
+            
+            <td>{{teacher.name}}</td>
+            <td>{{teacher.email}}</td>
+            <td>{{teacher.mobile}}</td>
+            <td><a class="btn btn-vayati" [routerLink]="['/viewdetail-teachers',teacher._id]">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+</div>
+
+

@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <div class="row">
+      <div class="col-6">
+        <div class="card-body">
+          <form [formGroup]="AcademicYearForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="inputName">Name</label>
+              <input class="form-control" type="text" formControlName="name">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+             Academic Year is required.
+              </div>
+
+              <label for="inputName">Start:</label>
+              <input class="form-control" type="date" formControlName="start"> 
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.start.errors?.required">
+                Start year is required.
+              </div>
+
+              <label for="inputName">End:</label>
+              <input class="form-control" type="date" formControlName="end"> 
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.end.errors?.required">
+                End year is required.
+              </div>
+
+   
+            </div>
+    
+            <div class="form-group">
+              <button class="btn btn-vayati " type="submit">Add Academic Year</button>
+            </div>
+            <!--Success Message-->
+            <div class="row"  *ngIf="showMsg">
+              <div class="col-xs-12">
+                <p class="alert alert-warning">
+                    <strong>Student Academic Year Created Successful!</strong>
+               </p>
+              </div>
+            </div>
+          </form>
+    
+        </div>
+      </div>
+      <div class="col-6">
+        <h1>Recently added Academic Details</h1>
+      </div>
+    </div>
+  </div>
+</div>

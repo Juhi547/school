@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <div class="row">
+      <div class="col-6">
+        <div class="card-body">
+          <form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="inputName">Name</label>
+              <input class="form-control" type="text" formControlName="name">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+                Name is required.
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="inputEmail3">Email</label>
+              <input class="form-control" type="text" formControlName="email">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
+                Enter your email.
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
+                Enter valid email.
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="inputVerify3">Mobile No</label>
+              <input class="form-control" type="text" formControlName="mobile">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.mobile.errors?.required">
+                Enter your phone number.
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.mobile.errors?.pattern">
+                Enter Numbers Only
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="inputName">Address</label>
+              <input class="form-control" type="text" formControlName="address">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.address.errors?.required">
+                Address is required.
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="inputVerify3">Pincode</label>
+              <input class="form-control" type="text" formControlName="pincode">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.pincode.errors?.required">
+                Enter your city pincode.
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.pincode.errors?.pattern">
+                Enter Numbers Only
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <button class="btn btn-vayati " type="submit">Add Parent</button>
+            </div>
+            <!--Success Message-->
+            <div class="row"  *ngIf="showMsg">
+              <div class="col-xs-12">
+                <p class="alert alert-warning">
+                    <strong>Parent Registration Successful!</strong>
+               </p>
+              </div>
+            </div>
+          </form>
+    
+        </div>
+      </div>
+      <div class="col-6">
+        <h1>Recently added parents</h1>
+      </div>
+    </div>
+  </div>
+</div>

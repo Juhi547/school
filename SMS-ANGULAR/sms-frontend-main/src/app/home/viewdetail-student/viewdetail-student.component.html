@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pt-4 pb-4 text-center">
+          <h3>{{student.name}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Personal Details</h5><hr>
+              <p class="card-text">
+                Date Of Birth : {{student.dob | date:'full'}}<br><hr>
+                Blood Group : {{student.bloodgroup}}<br><hr>
+                Gender : {{student.gender|uppercase}}<br><hr>
+                UID: {{student.uid}}<br><hr>
+              </p>
+              <p>{{date1}}</p>
+              <a *ngIf="student.parent" [routerLink]="['/viewdetail-parent',student.parent]" class="btn btn-vayati mr-2">View Parent</a>
+              <a href="#" class="btn btn-vayati mr-2">Update Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Academic Details</h5><hr>
+              <p class="card-text">
+                Standard : <br><hr>
+                Attendance This Session : <br><hr>
+                Results: <br><hr>
+                Discipline: <br><hr>
+              </p>
+              <a *ngIf="student.parent" [routerLink]="['/viewdetail-parent',student.parent]" class="btn btn-vayati mr-2">View Parent</a>
+              <a href="#" class="btn btn-vayati mr-2">Update Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

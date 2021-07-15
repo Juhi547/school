@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <div class="row">
+      <div class="col-6">
+        <div class="card-body">
+          <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="inputName">Name</label>
+              <input class="form-control" type="text" formControlName="name">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+                Name is required.
+              </div>
+
+              <label for="inputName">Date of Birth</label>
+              <input class="form-control" type="date" formControlName="dob"> 
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.dob.errors?.required">
+                Date of Birth is required.
+              </div>
+
+              <label for="inputName">UID</label>
+              <input class="form-control" type="number" formControlName="uid">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.uid.errors?.required">
+                UID No. is required.
+              </div>
+
+              <!-- <label for="inputName">Gender</label>
+              <input class="form-control" type="text" formControlName="gender">
+               error 
+              <div class="invalid-feedback" *ngIf="submitted && myForm.gender.errors?.required">
+                Gender is required.
+              </div> -->
+              <label for="inputName">Gender:</label> <br>
+
+              <label>
+                <input type="radio" value="Male" formControlName="gender">
+                  <span>male</span>
+              </label> <br>
+              <label>
+                <input type="radio" value="Female" formControlName="gender">
+                  <span>female</span>
+              </label>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.gender.errors?.required">
+                Gender is required.
+              </div>
+               <br>
+              <!-- <select multiple formControlName="bloodGroupName">
+                
+                <option *ngFor="let bloodGroup of BloodGroup" [ngValue]="bloodGroup" (change)="changeBloodGroup($event)">{{bloodGroup}}
+                </option>
+                <option value="bloodGroup">Blood Group:</option>
+             </select>
+             {{BloodGroup}}
+   
+   <div class="invalid-feedback" *ngIf="submitted && bloodGroupName.errors?.required">
+    <sup>*</sup>Please enter your Blood Group name
+ </div> -->
+ <!-- <div class="mb-3">
+  <select class="custom-select" (change)="changeBloodGroup($event)" formControlName="bloodGroupName">
+    <option disabled>Choose Value</option>
+    <option value="">Choose your Blood Group</option>
+    <option *ngFor="let bloodgroup of Bloodgroup">{{bloodgroup}}</option>
+  </select>
+
+  <div *ngIf="isValidated && bloodGroupName.errors?.required" class="alert alert-danger mt-2">
+    Please choose your blood group
+  </div>
+</div>      -->
+
+<label for="bloodgroup">Bloodgroup:</label>
+<select formControlName="bloodgroup" class="form-control">
+    <option disabled>Select Bloodgroup</option>
+    <option>Choose Bloodgroup</option>
+    <option *ngFor="let blood of bloodgroupList">{{blood}}</option>
+</select>
+<div *ngIf="myForm.bloodgroup.touched && myForm.bloodgroup.invalid" class="alert alert-danger">
+  <div *ngIf="myForm.bloodgroup.errors.required">Bloodgroup is required.</div>
+</div>   
+            </div>
+    
+            <div class="form-group">
+              <button class="btn btn-vayati " type="submit">Add Student</button>
+            </div>
+            <!--Success Message-->
+            <div class="row"  *ngIf="showMsg">
+              <div class="col-xs-12">
+                <p class="alert alert-warning">
+                    <strong>Student Registration Successful!</strong>
+               </p>
+              </div>
+            </div>
+          </form>
+    
+        </div>
+      </div>
+      <div class="col-6">
+        <h1>Recently added students</h1>
+      </div>
+    </div>
+  </div>
+</div>

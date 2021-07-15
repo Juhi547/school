@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <div>
+      <!-- No data message -->
+      <p *ngIf="Student.length <= 0" class="no-data text-center">There is no student added yet!</p>
+    
+      <!-- Student list -->
+      <table class="table table-bordered" *ngIf="Student.length > 0">
+        <thead class="bg-warning">
+          <tr>
+           <th scope="col">Name</th>
+           <th scope="col">Actions</th>
+       
+         </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of Student; let i = index">
+            <td>{{student.name}}</td>
+         
+            <td><a class="btn btn-vayati" [routerLink]="['/viewdetail-student',student._id]">Details</a></td>
+          
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+</div>
+
+
